@@ -10,7 +10,7 @@ pkgrel=1
 epoch=
 pkgdesc="Simple program to print out approximate moon phase"
 arch=('x86_64')
-url=""
+url="https://github.com/melkersona/moonphase"
 license=('GPL')
 groups=()
 depends=()
@@ -24,7 +24,7 @@ backup=()
 options=()
 install=
 changelog=
-source=("$pkgname-$pkgver.tar.gz")
+source=("https://github.com/melkersona/moonphase/archive/refs/tags/release.tar.gz")
 noextract=()
 md5sums=()
 validpgpkeys=()
@@ -46,4 +46,4 @@ package() {
 	cd "$pkgname-$pkgver"
 	make DESTDIR="$pkgdir/" install
 }
-sha256sums=('be09e1e8576f496d0809f93e240258ab065d893a8582a61306f21067d45d7431')
+sha256sums=('1891c9e3d72bffc5dc1b0a15259ed12cbff34f1e09e552cba4c9c8adaa658744')
