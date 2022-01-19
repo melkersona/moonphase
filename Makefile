@@ -1,17 +1,23 @@
 objects = main.o 
-cflags = -pthread
-output = output
-$(output): $(objects)
-	g++ -o $(output) $(objects) $(cflags)
+cflags = -O2
+BIN := moonphase
+DESTDIR := 
+PKGNAME := moonphase
+PREFIX := /usr/local
+$(BIN): $(objects)
+	g++ -o $(BIN) $(objects) $(cflags)
 
 debug: $(objects)
-	g++ -Ddeug -o $(output) $(objects) $(cflags) -g
+	g++ -Ddeug -o $(BIN) $(objects) $(cflags) -g
 
 $(objects):
 
-test: $(output)
-	./$(output)
+test: $(BIN)
+	./$(BIN)
 
-.PHONY: clean
+install: $(BIN)
+	install -Dm755 ${BIN} $(DESTDIR)$(PREFIX)/bin/${BIN}
+
+.PHONY: clean check
 clean:
-	-rm ./$(output) $(objects)
+	-rm ./$(BIN) $(objects)
