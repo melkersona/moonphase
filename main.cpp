@@ -1,4 +1,4 @@
-#define PRINT(text) std::cout << text
+#define PRINT(text) std::cout << text << '\n'
 #include <time.h>
 #include <math.h>
 #include <iostream>
