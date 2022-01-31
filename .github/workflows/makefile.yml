@@ -27,6 +27,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
       - name: Build the program
         run: make
 
@@ -35,6 +38,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
       - name: Install the program
         run: make install
 # vim: ts=2 sw=2 et
