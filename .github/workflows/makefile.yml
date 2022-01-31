@@ -7,12 +7,34 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-
+  tags:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-      
-    - name: Install dependencies
-      run: make
+       - name: Check out the repo
+       - uses: actions/checkout@v2
+
+       - name: Install ctags
+         run: |
+           sudo apt-get update
+           sudo apt-get install ctags
+
+       - name: Create .tags
+         run: make tags
+
+  build:
+    needs: tags
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build the program
+        run: make
+
+  install:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install the program
+        run: make install
+# vim: ts=2 sw=2 et
