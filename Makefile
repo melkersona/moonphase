@@ -1,5 +1,6 @@
 objects = main.o 
 cflags = -O2
+debugflags = -g
 BIN := moonphase
 DESTDIR := 
 PKGNAME := moonphase
@@ -8,7 +9,7 @@ $(BIN): $(objects)
 	g++ -o $(BIN) $(objects) $(cflags)
 
 debug: $(objects)
-	g++ -Ddeug -o $(BIN) $(objects) $(cflags) -g
+	g++ -Ddeug -o $(BIN) $(objects) $(cflags) $(debugflags)
 
 $(objects):
 
