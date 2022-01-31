@@ -7,7 +7,7 @@ DESTDIR :=
 PKGNAME := moonphase
 PREFIX := /usr/local
 
-all: $(BIN) tags
+all: $(BIN)
 
 $(BIN): $(objects)
 	g++ -o $(BIN) $(objects) $(cflags)
@@ -26,6 +26,3 @@ install: $(BIN)
 .PHONY: clean check tags
 clean:
 	-rm ./$(BIN) $(objects) .tags
-
-tags: $(SRCS)
-	ctags -R -f .tags
